@@ -44,13 +44,7 @@ const DisplayBooks = () => {
               <h1>{book.title}</h1>
               <p>{book.summary}</p>
             </Modal>
-            {/* // TODO :: BookCard component should have the delete functionality */}
-            <button
-              onClick={() => handleDelete(book.id)}
-              className="absolute z-50 top-5 right-5 hidden group-hover:block cursor-pointer hover:text-red-700 hover:font-bold hover:scale-105 transition-all "
-            >
-              X
-            </button>
+
             <BookCard book={book} />
           </div>
         );
