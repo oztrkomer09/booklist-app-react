@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useBookData } from "../../context/Context";
 
 // TODO :: Modal should have its own functionality logic
-function Modal({ isOpen, onClose, children }) {
+function Modal() {
+  const { isModalOpen, closeModal, modalBook } = useBookData();
+
   const modalStyle = {
-    display: isOpen ? "block" : "none",
+    display: isModalOpen ? "block" : "none",
     position: "fixed",
     top: 0,
     left: 0,
@@ -30,9 +33,10 @@ function Modal({ isOpen, onClose, children }) {
   return (
     <div style={modalStyle}>
       <div style={contentStyle}>
-        {children}
+        <h1>{modalBook.title}</h1>
+        <p>{modalBook.summary}</p>
         <button
-          onClick={onClose}
+          onClick={closeModal}
           className="absolute top-5 right-5 cursor-pointer hover:text-red-700 hover:font-bold hover:scale-105 transition-all "
         >
           X

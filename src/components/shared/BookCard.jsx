@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useBookData } from "../../context/Context";
 
 const BookCard = ({ book }) => {
-  const { books, setBooks } = useBookData();
+  const { books, setBooks, setModalBook, openModal } = useBookData();
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this book?")) {
@@ -13,8 +13,16 @@ const BookCard = ({ book }) => {
     }
   };
 
+  const handleModalItem = (book) => {
+    setModalBook(book);
+    openModal();
+  };
+
   return (
-    <div className="flex flex-col justify-center px-4 border-3 gap-y-1 bg-gray-100 w-72 h-72 border-2 shadow-xl hover:shadow-2xl hover:shadow-gray-400 transition-all rounded-sm capitalize cursor-default">
+    <div
+      onClick={() => handleModalItem(book)}
+      className="z-50 relative group flex flex-col justify-center px-4 border-3 gap-y-1 bg-gray-100 w-72 h-72 border-2 shadow-xl hover:shadow-2xl hover:shadow-gray-400 transition-all rounded-sm capitalize cursor-default"
+    >
       <button
         onClick={() => handleDelete(book.id)}
         className="absolute z-50 top-5 right-5 hidden group-hover:block cursor-pointer hover:text-red-700 hover:font-bold hover:scale-105 transition-all "

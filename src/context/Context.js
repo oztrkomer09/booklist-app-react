@@ -32,9 +32,10 @@ export const BookProvider = ({ children }) => {
             pages: 310,
             stock: undefined,
         },
-
-
     ]);
+
+    const [modalBook, setModalBook] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const storedBooks = localStorage.getItem("books");
@@ -48,7 +49,16 @@ export const BookProvider = ({ children }) => {
     }, [books]);
 
 
-    const data = { books, setBooks }
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+
+    const data = { books, setBooks, modalBook, setModalBook, isModalOpen, openModal, closeModal }
 
     return (
         <BookContext.Provider value={data}>
