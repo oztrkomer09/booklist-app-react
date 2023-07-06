@@ -21,7 +21,7 @@ const BookCard = ({ book }) => {
   return (
     <div
       onClick={() => handleModalItem(book)}
-      className="z-50 relative group flex flex-col justify-center px-4 border-3 gap-y-1 bg-gray-100 w-72 h-72 border-2 shadow-xl hover:shadow-2xl hover:shadow-gray-400 transition-all rounded-sm capitalize cursor-default"
+      className="z-40 relative group flex flex-col justify-center px-4 border-3 gap-y-1 bg-gray-100 w-72 h-72 border-2 shadow-xl hover:shadow-2xl hover:shadow-gray-400 transition-all rounded-sm capitalize cursor-default"
     >
       <button
         onClick={() => handleDelete(book.id)}
