@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 
 const AddBook = () => {
   const { books, setBooks } = useBookData();
+  // TODO :: Let's collect all book information info a single object
   const [title, setTitle] = useState("");
   const [authors, setAuthors] = useState([]);
   const [category, setCategory] = useState([]);
@@ -40,15 +41,17 @@ const AddBook = () => {
       pages: pages,
       stock: stock,
     });
-  }, [title, authors, category, pages, stock]);
+  }, [title, authors, category, pages, stock]); // Caution :: always question long dependency array for useEffect, useMemo and useCallback
 
   return (
     <div className="w-full h-full bg-white rounded-md px-4 py-8 flex flex-col justify-center items-center overflow-scroll">
       <form onSubmit={handleAddBook}>
         <div className="mb-4">
           Book Name:
+          {/**
+           * TODO :: Let's create an Input component and use it here
+           */}
           <input
-            value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
             type="text"

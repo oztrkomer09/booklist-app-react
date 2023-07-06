@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// TODO :: Modal should have its own functionality logic
 function Modal({ isOpen, onClose, children }) {
   const modalStyle = {
     display: isOpen ? "block" : "none",
